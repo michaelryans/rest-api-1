@@ -10,7 +10,9 @@ router.post('/login', UserController.login)
 router.use('/todos', todoRouter)
 router.use('/users', userRouter)
 router.get('/*', (req,res) => {
-    res.status(404).json('not found 404')
+    res.status(404).json(`not found 404
+Docs can be found on:
+https://github.com/michaelryans/rest-api-1`)
 })
 
 
