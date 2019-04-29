@@ -10,7 +10,7 @@ router.post('/login', UserController.login)
 router.use('/todos', todoRouter)
 router.use('/users', userRouter)
 router.get('/*', (req,res) => {
-    res.status(404).json('Check the complete documentation here -> <a href="https://github.com/michaelryans/rest-api-1"> https://github.com/michaelryans/rest-api-1 </a>')
+    res.status(404).json("Check the complete documentation here -> \"https://github.com/michaelryans/rest-api-1\"> https://github.com/michaelryans/rest-api-1 </a>")
 })
 
 
