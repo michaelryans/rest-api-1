@@ -1,5 +1,6 @@
 # REST API
-build with Express and Sequelize
+built with Express and Sequelize <br>
+deployment link: https://quiet-forest-67560.herokuapp.com/
 
 ### Base Route
 
