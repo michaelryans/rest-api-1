@@ -7,18 +7,21 @@ class UserController {
         // User.findOne({email:req.body.email})
         User.findOne({where:{email:req.body.email}})
         .then(found => {
+            // console.log("masuk ofund")
             if(!found) {
                 res.status(400).json({
                     message:'invalid user/password'
                 })
             } else {
                 const compared = compare(req.body.password, found.password)
-
+                // console.log("masuk else")
+                // console.log(compared)
                 if(compared) {
                     const to_be_decoded = {
                         id: found.id,
                         email: found.email
                     }
+                    // console.log('sebelum token')
                     const token = sign(to_be_decoded, process.env.JWT_SECRET)
                     res.status(200).json({token})
                 } else {

@@ -5,12 +5,14 @@ const {isAuthorized} = require('../middlewares/authorization')
 
 router.use(isLogin)
 //////all below use authentication
-
 router.get('/', controller.findAll)
 router.post('/', controller.create)
-router.get('/:id', isAuthorized, controller.findOne)
-router.delete('/:id', isAuthorized, controller.deleteOne)
-router.patch('/:id', isAuthorized, controller.patchOne)
-router.put('/:id', isAuthorized, controller.putOne)
+
+router.use('/:id', isAuthorized)
+//all below use authorization
+router.get('/:id', controller.findOne)
+router.delete('/:id', controller.deleteOne)
+router.patch('/:id', controller.patchOne)
+router.put('/:id', controller.putOne)
 
 module.exports = router

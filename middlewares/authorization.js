@@ -2,6 +2,9 @@ const {Todo, User} = require('../models')
 
 module.exports = {
     isAuthorized(req,res, next) {
+        console.log("test")
+        console.log(req.params)
+        console.log('-----------')
         Todo.findOne({where: {id:req.params.id}})
         .then(found => {
             if(found.user_id == req.decoded.id) {
@@ -11,7 +14,7 @@ module.exports = {
             }
         })
         .catch(err => {
-            res.status(400).json('bad request, todo not found')
+            res.status(400).json('bad request')
         })
     },
     isAuthorizedUser(req,res,next) {
